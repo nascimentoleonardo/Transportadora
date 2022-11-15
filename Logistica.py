@@ -91,5 +91,14 @@ if __name__ == '__main__':
                 input('Pressione ENTER para continuar...')
                 
 
-        if escolha == 3:
-            input(distancias)
+        if escolha == 5:
+            limparTela()
+            print('\033[1;33mSAINDO EM 3...\033[0;0m')
+            time.sleep(1)
+            limparTela()
+            print('\033[1;33mSAINDO EM 2...\033[0;0m')
+            time.sleep(1)
+            limparTela()
+            print('\033[1;33mSAINDO EM 1...\033[0;0m')
+            time.sleep(1)
+            limparTela()
