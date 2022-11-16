@@ -46,7 +46,6 @@ def validaCustoPorKm():
     if custoKm == 0:
         print('\033[1;33mParece que o custo por km não foi informado, retorne ao menu e informe um valor válido!\033[0;0m\n')
         input('Pressione ENTER para continuar...')
-        return False
 
 # Valida a origem e destino inseridos e consulta a distância entre eles
 def consultarTrecho(origem, destino):
@@ -60,8 +59,9 @@ def consultarTrecho(origem, destino):
         destino_index = distancias[0].index(destino)
 
         distancia = int(distancias[origem_index][destino_index])
+        print('\nA distância da cidade de {} até {} é de \033[1;32m{} km\033[0;0m e o custo total do trecho é de \033[1;32mR${:.2f}\033[0;0m\n'.format(origem, destino, distancia, distancia * custoPorKm()))
+        input('Pressione ENTER para continuar...')
         return distancia
-
 
 #Loop de execução do programa
 if __name__ == '__main__':
@@ -81,24 +81,24 @@ if __name__ == '__main__':
         if escolha == 2:
             limparTela()
             validaCustoPorKm()
-            if validaCustoPorKm() != False:
+            if custoKm > 0:
                 print('Informe a cidade de origem e destino: ')
                 origem = input('Origem: ').upper()
                 destino = input('Destino: ').upper()
                 consultarTrecho(origem, destino) 
                 
-                print('\nA distância da cidade de {} até {} é de \033[1;32m{} km\033[0;0m e o custo total do trecho é de \033[1;32mR${:.2f}\033[0;0m\n'.format(origem, destino, consultarTrecho(origem, destino), consultarTrecho(origem, destino) * custoPorKm()))
-                input('Pressione ENTER para continuar...')
+                
+                
                 
 
         if escolha == 5:
             limparTela()
             print('\033[1;33mSAINDO EM 3...\033[0;0m')
-            time.sleep(1)
+            time.sleep(0.75)
             limparTela()
             print('\033[1;33mSAINDO EM 2...\033[0;0m')
-            time.sleep(1)
+            time.sleep(0.75)
             limparTela()
             print('\033[1;33mSAINDO EM 1...\033[0;0m')
-            time.sleep(1)
+            time.sleep(0.75)
             limparTela()
