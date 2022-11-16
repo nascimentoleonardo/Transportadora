@@ -59,7 +59,10 @@ def consultarTrecho(origem, destino):
         destino_index = distancias[0].index(destino)
 
         distancia = int(distancias[origem_index][destino_index])
+        with open('log.txt', 'a') as log:
+            print('\nA distância da cidade de {} até {} é de {} km e o custo total do trecho é de R${:.2f}\n'.format(origem, destino, distancia, distancia * custoPorKm()), file=log)
         print('\nA distância da cidade de {} até {} é de \033[1;32m{} km\033[0;0m e o custo total do trecho é de \033[1;32mR${:.2f}\033[0;0m\n'.format(origem, destino, distancia, distancia * custoPorKm()))
+        print()
         input('Pressione ENTER para continuar...')
         return distancia
 
@@ -101,4 +104,4 @@ if __name__ == '__main__':
             limparTela()
             print('\033[1;33mSAINDO EM 1...\033[0;0m')
             time.sleep(0.75)
-            limparTela()
+            limparTela()    
