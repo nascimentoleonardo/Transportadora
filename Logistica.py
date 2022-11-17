@@ -41,7 +41,7 @@ def custoPorKm():
             custoKm = input('Informe o custo por km rodado: R$')
     custoKm = float(custoKm)
     custosKm.append(custoKm)
-    with open('log.txt', 'a') as log:
+    with open('log.txt', 'a', encoding = 'utf-8') as log:
         print('O custo por km rodado foi definido como R${:.2f}\n'.format(custoKm), file=log)
     return custoKm
 
@@ -64,7 +64,7 @@ def consultarTrecho(origem, destino):
         destino_index = distancias[0].index(destino)
 
         distancia = int(distancias[origem_index][destino_index])
-        with open('log.txt', 'a') as log:
+        with open('log.txt', 'a', encoding = 'utf-8') as log:
             print('\nA distância da cidade de {} até {} é de {} km e o custo total do trecho é de R${:.2f}\n'.format(origem, destino, distancia, distancia * custoPorKm()), file=log)
         return distancia, origem, destino
 
@@ -98,7 +98,7 @@ def melhorRota():
                 print('A melhor rota é{} -> {} com uma distância de {} km e {} -> {} com uma distância de {} km com uma distância total de {} km'.format(b, c, distanciaBC, c, a, distanciaCA, distanciaBC+distanciaCA), file=log)
             print('A melhor rota é \033[1;32m{} -> {}\033[0;0m com uma distância de \033[1;32m{} km\033[0;0m e \033[1;32m{} -> {}\033[0;0m com uma distância de \033[1;32m{} km\033[0;0m com uma distância total de \033[1;32m{} km\033[0;0m'.format(b, c, distanciaBC, c, a, distanciaCA, distanciaBC+distanciaCA))
         elif distanciaCA < distanciaAB and distanciaCA < distanciaBC:
-            with open('log.txt', 'a') as log:
+            with open('log.txt', 'a', encoding = 'utf-8') as log:
                 print('A melhor rota é{} -> {} com uma distância de {} km e {} -> {} com uma distância de {} km com uma distância total de {} km'.format(c, a, distanciaCA, a, b, distanciaAB, distanciaCA+distanciaAB), file=log)
             print('A melhor rota é \033[1;32m{} -> {}\033[0;0m com uma distância de \033[1;32m{} km\033[0;0m e \033[1;32m{} -> {}\033[0;0m com uma distância de \033[1;32m{} km\033[0;0m com uma distância total de \033[1;32m{} km\033[0;0m'.format(c, a, distanciaCA, a, b, distanciaAB, distanciaCA+distanciaAB))
         input('Pressione ENTER para continuar...')
@@ -130,14 +130,14 @@ def rotaCompleta():
         destino_index = distancias[0].index(cidades[i+1])
         distancia = int(distancias[origem_index][destino_index])
         distanciasPercorridas.append(distancia)
-        with open('log.txt', 'a') as log:
+        with open('log.txt', 'a', encoding = 'utf-8') as log:
             print('A distância entre {} e {} é {} km'.format(cidades[i], cidades[i+1], distancia), file=log)
         print('A distância entre \033[1;32m{} e {}\033[0;0m é \033[1;32m{} km\033[0;0m'.format(cidades[i], cidades[i+1], distancia))
     distanciaTotal = sum(distanciasPercorridas)
     print('O custo total da viagem é de \033[1;32mR${:.2f}\033[0;0m'.format(distanciaTotal * custoKm))
     print('A quantidade total de litros de combustível consumidos ao final da viagem é de \033[1;32m{:.2f} litros\033[0;0m'.format(distanciaTotal * 2.57))
     print('O número de dias para finalizar a viagem é de \033[1;32m{:.2f} dias\033[0;0m'.format(distanciaTotal / 583))
-    with open('log.txt', 'a') as log:
+    with open('log.txt', 'a', encoding = 'utf-8') as log:
         print('O custo total da viagem é de R${:.2f}'.format(distanciaTotal * custoKm), file=log)
         print('A quantidade total de litros de combustível consumidos ao final da viagem é de {:.2f} litros'.format(distanciaTotal * 2.57), file=log)
         print('O número de dias para finalizar a viagem é de {:.2f} dias'.format(distanciaTotal / 583), file=log)
