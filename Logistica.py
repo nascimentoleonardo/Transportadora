@@ -2,17 +2,22 @@ import csv
 import os
 import time
 
+#Abrir e ler e fechar o arquivo CSV
 file = open('dist.csv', 'r')
 distancias = list(csv.reader(file))
 file.close()
 
+#Variaveis globais
 custoKm = 0
 custosKm = []
 gasolinaKm = 2.57
 
+#Função para limpar a tela
 def limparTela():
     os.system('cls' if os.name == 'nt' else 'clear')
 
+
+#Função de estrutura do menu para usuário.
 def menu():
     limparTela()
     print('\n..:: Sistema para Gerenciamento de Logística ::..\n')
@@ -24,7 +29,7 @@ def menu():
     opcao = int(input('Escolha uma opção: '))
     return opcao
 
-# Valida se o custo por km é um valor numérico e maior que zero
+# Função que valida se o custo por km é um valor numérico e maior que zero
 def custoPorKm():
     global custoKm
     while True:
@@ -45,14 +50,14 @@ def custoPorKm():
         print('O custo por km rodado foi definido como R${:.2f}\n'.format(custoKm), file=log)
     return custoKm
 
-#Valida se o custo por km foi inserido
+#Função que valida se o custo por km foi inserido
 def validaCustoPorKm():
     if custoKm == 0:
         print('\033[1;33mParece que o custo por km não foi informado, retorne ao menu e informe um valor válido!\033[0;0m\n')
         input('Pressione ENTER para continuar...')
     
 
-# Valida a origem e destino inseridos e consulta a distância entre eles
+#Função que valida a origem e destino inseridos e consulta a distância entre eles
 def consultarTrecho(origem, destino):
     while origem not in distancias[0] or destino not in distancias[0] or origem == destino:
         limparTela()
@@ -68,6 +73,7 @@ def consultarTrecho(origem, destino):
             print('\nA distância da cidade de {} até {} é de {} km e o custo total do trecho é de R${:.2f}\n'.format(origem, destino, distancia, distancia * custoPorKm()), file=log)
         return distancia, origem, destino
 
+#Função que define a melhor rota entre cidades do Menu 3
 def melhorRota():
     limparTela()
     print('\n..:: Melhor Rota ::..\n')
@@ -103,7 +109,7 @@ def melhorRota():
             print('A melhor rota é \033[1;32m{} -> {}\033[0;0m com uma distância de \033[1;32m{} km\033[0;0m e \033[1;32m{} -> {}\033[0;0m com uma distância de \033[1;32m{} km\033[0;0m com uma distância total de \033[1;32m{} km\033[0;0m'.format(c, a, distanciaCA, a, b, distanciaAB, distanciaCA+distanciaAB))
         input('Pressione ENTER para continuar...')
 
-
+#Função que define a rota completa do menu 4
 def rotaCompleta():
     limparTela()
     print('Informe o nome de pelo menos três cidades e digite "fim" para finalizar')
@@ -146,7 +152,7 @@ def rotaCompleta():
         
  
 
-#Loop de execução do programa
+#Loop de execução do programa e finalização da execução.
 if __name__ == '__main__':
     escolha = 0
 
