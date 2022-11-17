@@ -8,7 +8,7 @@ file.close()
 
 custoKm = 0
 custosKm = []
-# distancia = 0
+gasolinaKm = 2.57
 
 def limparTela():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -41,6 +41,8 @@ def custoPorKm():
             custoKm = input('Informe o custo por km rodado: R$')
     custoKm = float(custoKm)
     custosKm.append(custoKm)
+    with open('log.txt', 'a') as log:
+        print('O custo por km rodado foi definido como R${:.2f}\n'.format(custoKm), file=log)
     return custoKm
 
 #Valida se o custo por km foi inserido
@@ -64,9 +66,6 @@ def consultarTrecho(origem, destino):
         distancia = int(distancias[origem_index][destino_index])
         with open('log.txt', 'a') as log:
             print('\nA distância da cidade de {} até {} é de {} km e o custo total do trecho é de R${:.2f}\n'.format(origem, destino, distancia, distancia * custoPorKm()), file=log)
-        # print('\nA distância da cidade de {} até {} é de \033[1;32m{} km\033[0;0m e o custo total do trecho é de \033[1;32mR${:.2f}\033[0;0m\n'.format(origem, destino, distancia, distancia * custoPorKm()))
-        # print()
-        # input('Pressione ENTER para continuar...')
         return distancia, origem, destino
 
 def melhorRota():
@@ -89,7 +88,6 @@ def melhorRota():
         c = cidades_lista[2]
         a = cidades_lista[0]
         distanciaCA = consultarTrecho(c, a)[0]
-        distanciaTotal = distanciaAB + distanciaBC + distanciaCA
         
         if distanciaAB < distanciaBC and distanciaAB < distanciaCA:
             with open('log.txt', 'a') as log:
@@ -104,6 +102,49 @@ def melhorRota():
                 print('A melhor rota é{} -> {} com uma distância de {} km e {} -> {} com uma distância de {} km com uma distância total de {} km'.format(c, a, distanciaCA, a, b, distanciaAB, distanciaCA+distanciaAB), file=log)
             print('A melhor rota é \033[1;32m{} -> {}\033[0;0m com uma distância de \033[1;32m{} km\033[0;0m e \033[1;32m{} -> {}\033[0;0m com uma distância de \033[1;32m{} km\033[0;0m com uma distância total de \033[1;32m{} km\033[0;0m'.format(c, a, distanciaCA, a, b, distanciaAB, distanciaCA+distanciaAB))
         input('Pressione ENTER para continuar...')
+
+
+def rotaCompleta():
+    limparTela()
+    print('Informe o nome de pelo menos três cidades e digite "fim" para finalizar')
+    distanciasPercorridas = []
+    cidades = []
+    cidadeIn = input('Informe uma cidade: ').upper()
+    while len(cidades) < 3:
+        if cidadeIn == 'FIM':
+            print('Informe pelo menos três cidades')
+            cidadeIn = input('Informe uma cidade: ').upper()
+        while cidadeIn != 'FIM':
+            while cidadeIn not in distancias[0]:
+                print('Cidade inválida!')
+                cidadeIn = input('Informe uma cidade válida: ').upper()
+            while cidadeIn in cidades:
+                print('Cidade já informada')
+                cidadeIn = input('Informe uma cidade que ainda não foi informada: ').upper()
+            else:
+                cidades.append(cidadeIn)
+                cidadeIn = input('Informe uma cidade: ').upper()
+    limparTela()
+    for i in range(len(cidades)-1):
+        origem_index = 1 + distancias[0].index(cidades[i])
+        destino_index = distancias[0].index(cidades[i+1])
+        distancia = int(distancias[origem_index][destino_index])
+        distanciasPercorridas.append(distancia)
+        with open('log.txt', 'a') as log:
+            print('A distância entre {} e {} é {} km'.format(cidades[i], cidades[i+1], distancia), file=log)
+        print('A distância entre \033[1;32m{} e {}\033[0;0m é \033[1;32m{} km\033[0;0m'.format(cidades[i], cidades[i+1], distancia))
+    distanciaTotal = sum(distanciasPercorridas)
+    print('O custo total da viagem é de \033[1;32mR${:.2f}\033[0;0m'.format(distanciaTotal * custoKm))
+    print('A quantidade total de litros de combustível consumidos ao final da viagem é de \033[1;32m{:.2f} litros\033[0;0m'.format(distanciaTotal * 2.57))
+    print('O número de dias para finalizar a viagem é de \033[1;32m{:.2f} dias\033[0;0m'.format(distanciaTotal / 583))
+    with open('log.txt', 'a') as log:
+        print('O custo total da viagem é de R${:.2f}'.format(distanciaTotal * custoKm), file=log)
+        print('A quantidade total de litros de combustível consumidos ao final da viagem é de {:.2f} litros'.format(distanciaTotal * 2.57), file=log)
+        print('O número de dias para finalizar a viagem é de {:.2f} dias'.format(distanciaTotal / 583), file=log)
+    cidades = []
+    input('Pressione ENTER para continuar...')
+        
+ 
 
 #Loop de execução do programa
 if __name__ == '__main__':
@@ -120,7 +161,7 @@ if __name__ == '__main__':
             print('O valor do custo por km inserido foi de \033[1;32mR${:.2f}\033[0;0m\n'.format(custoPorKm()))
             input('Pressione ENTER para continuar...')
 
-        if escolha == 2:
+        elif escolha == 2:
             limparTela()
             validaCustoPorKm()
             if custoKm > 0:
@@ -129,15 +170,18 @@ if __name__ == '__main__':
                 destino = input('Destino: ').upper()
                 distancia, origem_out, destino_out = consultarTrecho(origem, destino)
                 print('\nA distância da cidade de {} até {} é de \033[1;32m{} km\033[0;0m e o custo total do trecho é de \033[1;32mR${:.2f}\033[0;0m\n'.format(origem_out, destino_out, distancia, distancia * custoPorKm()))
-                input('Pressione ENTER para continuar...')
-        
-        if escolha == 3:
+                input('Pressione ENTER para continuar...')        
+        elif escolha == 3:
             limparTela()
             validaCustoPorKm()
             if custoKm > 0:
                 melhorRota()
-
-        if escolha == 5:
+        elif escolha == 4:
+            limparTela()
+            validaCustoPorKm()
+            if custoKm > 0:
+                rotaCompleta()
+        elif escolha == 5:
             limparTela()
             print('\033[1;33mSAINDO EM 3...\033[0;0m')
             time.sleep(0.75)
@@ -148,3 +192,7 @@ if __name__ == '__main__':
             print('\033[1;33mSAINDO EM 1...\033[0;0m')
             time.sleep(0.75)
             limparTela()    
+        else:
+            limparTela()
+            print('\033[1;31mOpção inválida!\033[0;0m')
+            input('Pressione ENTER para continuar...')
