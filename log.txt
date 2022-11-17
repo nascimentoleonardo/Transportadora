@@ -1,0 +1,133 @@
+
+A distância da cidade de ARACAJU até PORTO ALEGRE é de 3296 km e o custo total do trecho é de R$1977.60
+
+
+A distância da cidade de PORTO ALEGRE até VITORIA é de 2001 km e o custo total do trecho é de R$4002.00
+
+
+A distância da cidade de VITORIA até BELEM é de 3108 km e o custo total do trecho é de R$6216.00
+
+
+A distância da cidade de BELEM até PORTO ALEGRE é de 3852 km e o custo total do trecho é de R$7704.00
+
+
+A distância total percorrida é de [1;32m8961 km[0;0m
+
+
+A distância da cidade de VITORIA até BELEM é de 3108 km e o custo total do trecho é de R$6216.00
+
+
+A distância da cidade de ARACAJU até BELEM é de 2079 km e o custo total do trecho é de R$4158.00
+
+
+A distância da cidade de BELEM até VITORIA é de 3108 km e o custo total do trecho é de R$6216.00
+
+
+A distância da cidade de VITORIA até ARACAJU é de 1408 km e o custo total do trecho é de R$2816.00
+
+
+A distância da cidade de ARACAJU até BELEM é de 2079 km e o custo total do trecho é de R$4158.00
+
+
+A distância da cidade de BELEM até VITORIA é de 3108 km e o custo total do trecho é de R$6216.00
+
+
+A distância da cidade de VITORIA até ARACAJU é de 1408 km e o custo total do trecho é de R$2816.00
+
+A melhor rota é VITORIA -> ARACAJU -> BELEM com uma distância total de 6595 km
+
+A distância da cidade de VITORIA até ARACAJU é de 1408 km e o custo total do trecho é de R$2816.00
+
+
+A distância da cidade de VITORIA até ARACAJU é de 1408 km e o custo total do trecho é de R$2816.00
+
+
+A distância da cidade de VITORIA até BELEM é de 3108 km e o custo total do trecho é de R$6216.00
+
+
+A distância da cidade de VITORIA até BELEM é de 3108 km e o custo total do trecho é de R$6216.00
+
+
+A distância da cidade de BELEM até ARACAJU é de 2079 km e o custo total do trecho é de R$4158.00
+
+
+A distância da cidade de ARACAJU até VITORIA é de 1408 km e o custo total do trecho é de R$2816.00
+
+A melhor rota é ARACAJU -> VITORIA -> BELEM com uma distância total de 6595 km
+
+A distância da cidade de VITORIA até BELEM é de 3108 km e o custo total do trecho é de R$6216.00
+
+
+A distância da cidade de VITORIA até BELEM é de 3108 km e o custo total do trecho é de R$6216.00
+
+
+A distância da cidade de BELEM até ARACAJU é de 2079 km e o custo total do trecho é de R$4158.00
+
+
+A distância da cidade de ARACAJU até VITORIA é de 1408 km e o custo total do trecho é de R$2816.00
+
+A melhor rota é ARACAJU -> VITORIA -> BELEM com uma distância total de 6595 km
+
+A distância da cidade de PORTO ALEGRE até VITORIA é de 2001 km e o custo total do trecho é de R$4002.00
+
+
+A distância da cidade de PORTO ALEGRE até VITORIA é de 2001 km e o custo total do trecho é de R$4002.00
+
+
+A distância da cidade de VITORIA até PORTO ALEGRE é de 2001 km e o custo total do trecho é de R$4002.00
+
+
+A distância da cidade de PORTO ALEGRE até VITORIA é de 2001 km e o custo total do trecho é de R$4002.00
+
+
+A distância da cidade de PORTO ALEGRE até VITORIA é de 2001 km e o custo total do trecho é de R$4002.00
+
+
+A distância da cidade de PORTO ALEGRE até VITORIA é de 2001 km e o custo total do trecho é de R$4002.00
+
+
+A distância da cidade de PORTO ALEGRE até VITORIA é de 2001 km e o custo total do trecho é de R$4002.00
+
+
+A distância da cidade de PORTO ALEGRE até VITORIA é de 2001 km e o custo total do trecho é de R$4002.00
+
+
+A distância da cidade de VITORIA até ARACAJU é de 1408 km e o custo total do trecho é de R$2816.00
+
+
+A distância da cidade de ARACAJU até PORTO ALEGRE é de 3296 km e o custo total do trecho é de R$6592.00
+
+A melhor rota é VITORIA -> ARACAJU -> PORTO ALEGRE com uma distância total de (2001, 'PORTO ALEGRE', 'VITORIA', 1408, 'VITORIA', 'ARACAJU', 3296, 'ARACAJU', 'PORTO ALEGRE') km
+
+A distância da cidade de ARACAJU até VITORIA é de 1408 km e o custo total do trecho é de R$2816.00
+
+
+A distância da cidade de VITORIA até BELEM é de 3108 km e o custo total do trecho é de R$6216.00
+
+
+A distância da cidade de BELEM até ARACAJU é de 2079 km e o custo total do trecho é de R$4158.00
+
+A melhor rota é ARACAJU -> VITORIA -> BELEM com uma distância total de 6595 km
+
+A distância da cidade de PORTO ALEGRE até VITORIA é de 2001 km e o custo total do trecho é de R$4002.00
+
+
+A distância da cidade de ARACAJU até BELEM é de 2079 km e o custo total do trecho é de R$4158.00
+
+
+A distância da cidade de BELEM até VITORIA é de 3108 km e o custo total do trecho é de R$6216.00
+
+
+A distância da cidade de VITORIA até ARACAJU é de 1408 km e o custo total do trecho é de R$2816.00
+
+A melhor rota é VITORIA -> ARACAJU -> BELEM com uma distância total de 6595 km
+
+A distância da cidade de ARACAJU até BELEM é de 2079 km e o custo total do trecho é de R$2079.00
+
+
+A distância da cidade de BELEM até VITORIA é de 3108 km e o custo total do trecho é de R$3108.00
+
+
+A distância da cidade de VITORIA até ARACAJU é de 1408 km e o custo total do trecho é de R$1408.00
+
+A melhor rota éVITORIA -> ARACAJU com uma distância de 1408 km e ARACAJU -> BELEM com uma distância de 2079 km com uma distância total de 3487 km
